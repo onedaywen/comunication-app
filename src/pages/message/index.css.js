@@ -3,6 +3,19 @@ import {
   Dimensions
 } from 'react-native';
 const { height, width } =  Dimensions.get('window')
+const border = (color) => {
+  color = color || '#999'
+  return {
+    borderTopWidth: 1,
+    borderTopColor: color,
+    borderRightWidth: 1,
+    borderRightColor: color,
+    borderBottomWidth: 1,
+    borderBottomColor: color,
+    borderLeftWidth: 1,
+    borderLeftColor: color
+  }
+}
 const styles = StyleSheet.create({
   pageView: {
     width,
@@ -21,13 +34,6 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     paddingRight: 20
-  },
-  msgItemBox: {
-    height: 120
-  },
-  msgItem: {
-    height: 120,
-    fontSize: 18,
   },
   listBox: {
     height: height - 180,
@@ -49,18 +55,36 @@ const styles = StyleSheet.create({
     marginTop: 11,
     // ...border('orange')
   },
-  itemTextBox: {
+  itemRightBox: {
     width: width - 80,
-    height: 68,
+    height: 60,
     paddingBottom: 10,
     marginLeft: 10,
     borderBottomWidth: 1,
     borderBottomColor: '#efefef',
     // ...border('orange')
   },
-  itemText: {
-    fontSize: 20,
-    lineHeight: 55
+  firstLine: {
+    flexDirection: 'row'
+  },
+  firstLineText: {
+    lineHeight: 30,
+    // ...border('red')
+  },
+  firstLineTime: {
+    width: 200,
+    lineHeight: 30,
+    color: '#666',
+    textAlign: 'right',
+    ...border('red')
+  },
+  secondLine: {
+    // textOverflow: 'ellipsis',
+    // overflow: 'hidden',
+    // whiteSpace: 'nowrap'
+  },
+  secondLineText: {
+    color: '#666'
   }
 })
 export default styles

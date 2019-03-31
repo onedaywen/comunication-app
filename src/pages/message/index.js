@@ -30,8 +30,14 @@ export default class Message extends Component {
                     <View style={styles.imgBox}>
                       <Image source={item.img}/>
                     </View>
-                    <View style={styles.itemTextBox}>
-                      <Text style={styles.itemText}>{item.label}</Text>
+                    <View style={styles.itemRightBox}>
+                      <View style={styles.firstLine}>
+                        <Text style={styles.firstLineText}>{item.label}</Text>
+                        <Text style={styles.firstLineTime}>昨天10:20</Text>
+                      </View>
+                      <View style={styles.secondLine}>
+                        <Text style={styles.secondLineText} numberOfLines={1}>温奕添-前端开发工程师: 麻烦运维同事在今晚8点发车管家的生产包，构建吗876</Text>
+                      </View>
                     </View>
                   </View>
                 )
