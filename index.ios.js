@@ -4,16 +4,18 @@ import Message from './src/pages/message/index'
 import Work from './src/pages/work/index'
 import Communication from './src/pages/communication/index'
 import Mine from './src/pages/mine/index'
+import Login from './src/pages/login/index'
 import { createStackNavigator } from 'react-navigation'
 const AppNavigator = createStackNavigator(
   { 
     Message: { screen: Message },
     Work: { screen: Work },
     Communication: { screen: Communication },
-    Mine: { screen: Mine }
+    Mine: { screen: Mine },
+    Login: { screen: Login },
   },
   {
-    initialRouteName: 'Message',
+    initialRouteName: 'Login'
   }
 )
 

@@ -2,3 +2,6 @@
 >+ 2. View组件不支持lineHeight, fontSize等文本类css属性， text不支持border属性
 >+ 3. 文本省略号采用numberOfLine属性设置
 >+ 4. 布局方案采用flex， 默认下就是flex，不支持inline-block, block, float等布局。默认的flexDirecion: column, 多个盒子一行显示，可以设置 flexDirection: 'row'
+>+ 5. 如何console.log
+>+ 6. textInput边框只支持 borderWidth borderColor,不支持单独一条边的设置
+>+ 7. button组件样式仅支持设置背景颜色 color，不支持设置width、height、边框、背景、font-size等。可以通过外层包裹一层盒子

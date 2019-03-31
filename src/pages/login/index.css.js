@@ -1,7 +1,8 @@
 import {
   StyleSheet,
   Dimensions
-} from 'react-native';
+} from 'react-native'
+import { primaryColor } from '../../styles/var'
 const { height, width } =  Dimensions.get('window')
 const border = (color) => {
   color = color || '#999'
@@ -22,38 +23,33 @@ const styles = StyleSheet.create({
     height: height - 60,
     // backgroundColor: 'yellow',
   },
-  listBox: {
+  contentBox: {
     height: height - 180,
-    backgroundColor: '#fff',
+    paddingTop: 100,
+    backgroundColor: '#fff'
+  },
+  textInputBox: {
+    height: 50,
     paddingLeft: 20,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingRight: 20
-  },
-  itemBox: {
-    width: width,
-    height: 70,
-    marginBottom: 10,
-    flexDirection: 'row',
-    // ...border('red')
-  },
-  imgBox: {
-    width: 48,
-    marginTop: 11,
-    // ...border('orange')
-  },
-  itemTextBox: {
-    width: width - 80,
-    height: 68,
-    paddingBottom: 10,
-    marginLeft: 10,
+    paddingRight: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#efefef',
-    // ...border('orange')
+    borderBottomColor: '#ddd',
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 20
   },
-  itemText: {
-    fontSize: 20,
-    lineHeight: 55
+  textInput: {
+    height: 50,
+  },
+  buttonBox: {
+    marginLeft: 20,
+    marginRight: 20,
+    paddingTop: 8,
+    paddingBottom: 8,
+    borderWidth: 1,
+    backgroundColor: primaryColor,
+    borderColor: primaryColor,
+    borderRadius: 8,
   }
 })
 export default styles

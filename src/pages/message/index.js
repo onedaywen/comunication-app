@@ -3,6 +3,7 @@ import styles from './index.css.js'
 import { Text, Image, View, ScrollView } from 'react-native'
 import THeader from '../../components/t-header/index'
 import TFooter from '../../components/t-footer/index'
+
 export default class Message extends Component {
   constructor (props) {
     super(props)
@@ -14,6 +15,9 @@ export default class Message extends Component {
         }
       })
     }
+  }
+  componentWillMount () {
+    // console.log(1111)
   }
   render() {
     let state = this.state
