@@ -1,0 +1,26 @@
+{
+	"name": "MyApp",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"bundle-ios": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.ios.js  --platform ios --dev false --bundle-output ./ios/bundle/index.ios.jsbundle --assets-dest ./ios/bundle",
+		"bundle-android": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.android.js  --platform android --dev false --bundle-output ./android/bundle/index.android.jsbundle --assets-dest ./android/bundle",
+		"test": "jest"
+	},
+	"dependencies": {
+		"react": "16.0.0-alpha.6",
+		"react-native": "0.44.3",
+		"react-native-gesture-handler": "^1.1.0",
+		"react-navigation": "^2.0.4"
+	},
+	"devDependencies": {
+		"babel-jest": "24.5.0",
+		"babel-preset-react-native": "4.0.1",
+		"jest": "24.5.0",
+		"react-test-renderer": "16.0.0-alpha.6"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
+}

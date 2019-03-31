@@ -1,0 +1,1 @@
+>+ 1. position只支持absolute和relative属性
