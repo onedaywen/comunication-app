@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { primaryColor } from '../../styles/var.js'
-import { Text, Image, View } from 'react-native'
+import { Text, Image, View, TouchableOpacity } from 'react-native'
 import { StyleSheet, Dimensions } from 'react-native'
 import { withNavigation } from 'react-navigation'
 const { height, width } =  Dimensions.get('window')
@@ -51,7 +51,7 @@ class TFooter extends Component {
         {
           state.footerList.map((item, index) => {
             return (
-              <Text style={styles.footerItem}
+              <TouchableOpacity style={styles.footerItem}
                 key={index}
                 onPress={this.go.bind(this, item, index)}>
                 <View style={styles.footerItemImageBox}>
@@ -63,7 +63,7 @@ class TFooter extends Component {
                     {item.label}
                   </Text>
                 </View>
-              </Text>
+              </TouchableOpacity>
             )
           })
         }
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   },
   footerItemText: {
     width: width / 4,
-    marginTop: 15,
+    // marginTop: 15,
     fontSize: 14,
     textAlign: 'center',
     color: '#666'

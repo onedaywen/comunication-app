@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AppRegistry, View } from 'react-native'
+import { AppRegistry, Text } from 'react-native'
 import Message from './src/pages/message/index'
 import Work from './src/pages/work/index'
 import Communication from './src/pages/communication/index'
@@ -16,7 +16,7 @@ const AppNavigator = createStackNavigator(
     Login: { screen: Login },
   },
   {
-    initialRouteName: 'Login'
+    initialRouteName: 'Message'
   }
 )
 
@@ -26,10 +26,7 @@ export default class MyApp extends Component {
   }
   render() {
     return (
-      <View>
-        {/* <TToast message={'请求成功'}/> */}
-        <AppNavigator></AppNavigator>
-      </View>
+      <AppNavigator></AppNavigator>
     )
   }
 }

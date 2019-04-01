@@ -18,15 +18,16 @@ const border = (color) => {
 }
 const styles = StyleSheet.create({
   pageView: {
+    flexDirection: 'column',
+    justifyContent: 'space-between', 
     width,
     height: height - 60,
     backgroundColor: 'yellow',
   },
   scrollView: {
     width,
-    height: height - 180,
-    overflow: 'scroll',
-    backgroundColor: 'skyblue',
+    height: height - 120,
+    overflow: 'scroll'
   },
   messageBox: {
     backgroundColor: '#fff',
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     paddingRight: 20
   },
   listBox: {
-    height: height - 180,
+    height: height - 200,
     backgroundColor: '#fff',
     paddingLeft: 20,
     paddingTop: 10,
@@ -65,18 +66,19 @@ const styles = StyleSheet.create({
     // ...border('orange')
   },
   firstLine: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingRight: 20
   },
   firstLineText: {
     lineHeight: 30,
     // ...border('red')
   },
   firstLineTime: {
-    width: 200,
     lineHeight: 30,
-    color: '#666',
+    color: '#999',
     textAlign: 'right',
-    ...border('red')
+    // ...border('red')
   },
   secondLine: {
     // textOverflow: 'ellipsis',
@@ -84,7 +86,7 @@ const styles = StyleSheet.create({
     // whiteSpace: 'nowrap'
   },
   secondLineText: {
-    color: '#666'
+    color: '#999'
   }
 })
 export default styles

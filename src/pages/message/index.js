@@ -8,7 +8,7 @@ export default class Message extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      messageList: new Array(200).fill(1).map(item => {
+      messageList: new Array(2).fill(1).map(item => {
         return {
           label: Math.random().toString(36).substr(2),
           img: require('../../assets/imgs/communication.png')
