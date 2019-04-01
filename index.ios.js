@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AppRegistry } from 'react-native'
+import { AppRegistry, Text } from 'react-native'
 import Message from './src/pages/message/index'
 import Work from './src/pages/work/index'
 import Communication from './src/pages/communication/index'
@@ -15,7 +15,7 @@ const AppNavigator = createStackNavigator(
     Login: { screen: Login },
   },
   {
-    initialRouteName: 'Login'
+    initialRouteName: 'Message'
   }
 )
 

@@ -17,14 +17,17 @@ const border = (color) => {
   }
 }
 const styles = StyleSheet.create({
+  
   pageView: {
+    flexDirection: 'column',
+    justifyContent: 'space-between', 
     width,
-    height: height - 60,
+    height: height,
     backgroundColor: 'yellow',
   },
   scrollView: {
     width,
-    height: height - 180,
+    height: height - 200,
     overflow: 'scroll',
     backgroundColor: 'skyblue',
   },
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
     paddingRight: 20
   },
   listBox: {
-    height: height - 180,
+    height: height - 200,
     backgroundColor: '#fff',
     paddingLeft: 20,
     paddingTop: 10,

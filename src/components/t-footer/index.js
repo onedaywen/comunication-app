@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   },
   footerItemText: {
     width: width / 4,
-    marginTop: 15,
+    // marginTop: 15,
     fontSize: 14,
     textAlign: 'center',
     color: '#666'
