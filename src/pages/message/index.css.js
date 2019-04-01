@@ -65,18 +65,19 @@ const styles = StyleSheet.create({
     // ...border('orange')
   },
   firstLine: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingRight: 20
   },
   firstLineText: {
     lineHeight: 30,
     // ...border('red')
   },
   firstLineTime: {
-    width: 200,
     lineHeight: 30,
-    color: '#666',
+    color: '#999',
     textAlign: 'right',
-    ...border('red')
+    // ...border('red')
   },
   secondLine: {
     // textOverflow: 'ellipsis',
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
     // whiteSpace: 'nowrap'
   },
   secondLineText: {
-    color: '#666'
+    color: '#999'
   }
 })
 export default styles

@@ -44,12 +44,7 @@ const styles = StyleSheet.create({
   buttonBox: {
     marginLeft: 20,
     marginRight: 20,
-    paddingTop: 8,
-    paddingBottom: 8,
-    borderWidth: 1,
-    backgroundColor: primaryColor,
-    borderColor: primaryColor,
-    borderRadius: 8,
+    marginTop: 20
   }
 })
 export default styles

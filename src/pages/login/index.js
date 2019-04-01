@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import styles from './index.css.js'
 import { Text, Image, View, TextInput, Button } from 'react-native'
-import THeader from '../../components/t-header/index'
-import TFooter from '../../components/t-footer/index'
+import { primaryColor } from '../../styles/var'
+import TButton from '../../components/t-button/index'
 export default class Message extends Component {
   constructor (props) {
     super(props)
@@ -30,7 +30,6 @@ export default class Message extends Component {
     let state = this.state
     return (
       <View style={styles.pageView}>
-        <THeader></THeader>
         <View style={styles.contentBox}>
           <View style={styles.textInputBox}>
             <TextInput
@@ -39,6 +38,7 @@ export default class Message extends Component {
               value={this.state.account}
               placeholder="请输入账号"
               maxLength={6}
+              underlineColorAndroid="transparent"
             />
           </View>
           <View style={styles.textInputBox}>
@@ -48,20 +48,17 @@ export default class Message extends Component {
               value={this.state.password}
               placeholder="请输入密码"
               maxLength={6}
+              underlineColorAndroid="transparent"
             />
           </View>
           <View style={styles.buttonBox}>
-            <Button
+            <TButton label="登陆"
               style={styles.button}
               onPress={this.handleLogin.bind(this)}
-              title="登陆"
-              color="#fff"
-              fontSize={50}
               accessibilityLabel="app登陆按钮"
-            />
+              />
           </View>
         </View>
-        <TFooter></TFooter>
       </View>
     )
   }
