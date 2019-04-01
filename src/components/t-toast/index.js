@@ -3,31 +3,30 @@ import { Text, View } from 'react-native'
 import { StyleSheet, Dimensions } from 'react-native'
 const { height, width } =  Dimensions.get('window')
 
-export default class THeader extends Component {
+export default class TToast extends Component {
   constructor (props) {
     super(props)
   }
   render() {
     return (
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>跨声</Text>
+      <View style={styles.toast}>
+        <Text style={styles.toastTitle}>{this.props.message}</Text>
       </View>
     )
   }
 }
 const styles = StyleSheet.create({ 
-  header: {     
+  toast: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
     width: width,
-    height: 60,
-    backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#efefef'
+    height: height,
+    backgroundColor: '#000'
   },
-  headerTitle: {
+  toastTitle: {
     height: 59,
     lineHeight: 59,
-    fontSize: 30,
-    marginLeft: 20,
-    fontWeight: 'bold'
+    fontSize: 20,
   }
 })

@@ -3,6 +3,7 @@ import styles from './index.css.js'
 import { Text, Image, View, TextInput, Button } from 'react-native'
 import THeader from '../../components/t-header/index'
 import TFooter from '../../components/t-footer/index'
+// import Toast from 'react-native-root-toast'
 export default class Message extends Component {
   constructor (props) {
     super(props)
@@ -24,7 +25,18 @@ export default class Message extends Component {
     })
   }
   handleLogin () {
-
+    // Toast.show('请求成功')
+    fetch('https://mywebsite.com/endpoint/', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstParam: 'yourValue',
+        secondParam: 'yourOtherValue',
+      })
+    })
   }
   render() {
     let state = this.state
