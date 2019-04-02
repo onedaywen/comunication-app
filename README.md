@@ -16,6 +16,8 @@
 >+ 如何跳转
 >+ 如何传参
 
+>+ 1. createBottomTabNavigator的切换没有路由动画，createStackNavigator有动画
+
 ## webview与h5如何传参
 
 

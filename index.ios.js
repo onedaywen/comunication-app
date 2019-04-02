@@ -7,7 +7,7 @@ import MineScreen from './src/pages/mine/index'
 import LoginScreen from './src/pages/login/index'
 import AuthLoadingScreen from './src/pages/auth-loading/index'
 import { createStackNavigator, createBottomTabNavigator, createSwitchNavigator } from 'react-navigation'
-
+import { primaryColor } from './src/styles/var'
 const routeNameMap = {
   Message: { 
     label: '消息',
@@ -48,7 +48,7 @@ const BottomNavigator = createBottomTabNavigator(
         const { routeName } = navigation.state
         const config = routeNameMap[routeName] || {}
         return (
-          <Image source={config.icon}
+          <Image source={focused ? config.activeIcon : config.icon}
                  style={{width: 22, height: 22, marginTop: 5}}></Image>
         )
       },
@@ -56,9 +56,13 @@ const BottomNavigator = createBottomTabNavigator(
         const { routeName } = navigation.state
         const config = routeNameMap[routeName] || {}
         return (
-          <Text style={{textAlign: 'center', fontSize: 12}}>{config.label}</Text>
+          <Text style={{textAlign: 'center', fontSize: 12, color: focused ? primaryColor : '#999'}}>{config.label}</Text>
         )
       },
+      // tabBarOptions: {
+      //   activeTintColor: '#000',
+      //   inactiveTintColor: '#999',
+      // }
     })
   }
 )
@@ -79,4 +83,5 @@ class MyApp extends Component {
     )
   }
 }
+
 AppRegistry.registerComponent('MyApp', () => MyApp)
