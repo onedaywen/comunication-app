@@ -1,3 +1,4 @@
+## 常用组件
 >+ 1. position只支持absolute和relative属性
 >+ 2. View组件不支持lineHeight, fontSize等文本类css属性， text不支持border属性
 >+ 3. 文本省略号采用numberOfLine属性设置
@@ -8,3 +9,16 @@
 >+ 8. iOS支持Text嵌套View，Android不支持。Text支持onPress，View不支持onPress。需要采用包装。
 >+ 9. textInput在安卓端默认有undefinline, 需要重置掉 underlineColorAndroid="transparent"
 >+ 10. Button不能设置高度、宽度。样式只能设定简单的背景颜色, font-size。需要用TouchableOpacity组件包装
+
+## 路由学习路线
+>+ 如何定义路由、字路由
+>+ 如何获取当前路由
+>+ 如何跳转
+>+ 如何传参
+
+## webview与h5如何传参
+
+
+## iOS和Android如何做适配
+
+## 如何进行调试

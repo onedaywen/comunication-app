@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { AppRegistry, Text, View, Image } from 'react-native'
-import Message from './src/pages/message/index'
-import Work from './src/pages/work/index'
-import Communication from './src/pages/communication/index'
-import Mine from './src/pages/mine/index'
-import Login from './src/pages/login/index'
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation'
+import MessageScreen from './src/pages/message/index'
+import WorkScreen from './src/pages/work/index'
+import CommunicationScreen from './src/pages/communication/index'
+import MineScreen from './src/pages/mine/index'
+import LoginScreen from './src/pages/login/index'
+import { createStackNavigator, createBottomTabNavigator, createSwitchNavigator } from 'react-navigation'
 const routeNameMap = {
   Message: { 
     label: '消息',
@@ -32,12 +32,12 @@ const routeNameMap = {
     routeName: 'Mine'
   },
 }
-const AppNavigator = createBottomTabNavigator(
+const BottomNavigator = createBottomTabNavigator(
   { 
-    Message: { screen: Message },
-    Work: { screen: Work },
-    Communication: { screen: Communication },
-    Mine: { screen: Mine },
+    Message: { screen: MessageScreen },
+    Work: { screen: WorkScreen },
+    Communication: { screen: CommunicationScreen },
+    Mine: { screen: MineScreen },
   },
   {
     initialRouteName: 'Message',
@@ -45,35 +45,34 @@ const AppNavigator = createBottomTabNavigator(
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state
         const config = routeNameMap[routeName] || {}
-        if (routeName === 'Login') {
-          return
-        }
         return (
           <Image source={config.icon}
-                 style={{width: 24, height: 24}}></Image>
+                 style={{width: 22, height: 22, marginTop: 5}}></Image>
         )
       },
       tabBarLabel: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state
         const config = routeNameMap[routeName] || {}
-        if (routeName === 'Login') {
-          return
-        }
         return (
-          <Text style={{textAlign: 'center'}}>{config.label}</Text>
+          <Text style={{textAlign: 'center', fontSize: 12}}>{config.label}</Text>
         )
       },
     })
   }
 )
-
+const SwitchNavigator = createSwitchNavigator({
+  Login: LoginScreen,
+  BottomNavigator: BottomNavigator
+}, {
+  initialRouteName: 'Login'
+})
 export default class MyApp extends Component {
   constructor (props) {
     super(props)
   }
   render() {
     return (
-      <AppNavigator></AppNavigator>
+      <SwitchNavigator></SwitchNavigator>
     )
   }
 }

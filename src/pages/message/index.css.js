@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between', 
     width,
     height: height - 60,
-    backgroundColor: 'yellow',
+    backgroundColor: '#f1f4f7',
   },
   scrollView: {
     width,

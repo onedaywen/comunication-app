@@ -32,7 +32,7 @@ const routeNameMap = {
     routeName: 'Mine'
   },
 }
-const AppNavigator = createBottomTabNavigator(
+const BottomNavigator = createBottomTabNavigator(
   { 
     Message: { screen: Message },
     Work: { screen: Work },
@@ -45,35 +45,33 @@ const AppNavigator = createBottomTabNavigator(
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state
         const config = routeNameMap[routeName] || {}
-        if (routeName === 'Login') {
-          return
-        }
         return (
           <Image source={config.icon}
-                 style={{width: 24, height: 24}}></Image>
+                 style={{width: 22, height: 22, marginTop: 5}}></Image>
         )
       },
       tabBarLabel: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state
         const config = routeNameMap[routeName] || {}
-        if (routeName === 'Login') {
-          return
-        }
         return (
-          <Text style={{textAlign: 'center'}}>{config.label}</Text>
+          <Text style={{textAlign: 'center', fontSize: 12}}>{config.label}</Text>
         )
       },
     })
   }
 )
-
+const StackNavigator = createStackNavigator({
+  Login: {
+    screen: Login
+  }
+})
 export default class MyApp extends Component {
   constructor (props) {
     super(props)
   }
   render() {
     return (
-      <AppNavigator></AppNavigator>
+      <BottomNavigator></BottomNavigator>
     )
   }
 }

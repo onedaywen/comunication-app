@@ -8,9 +8,12 @@ export default class TButton extends Component {
   constructor (props) {
     super(props)
   }
+  handlePress () {
+    this.props.onPress.call(this)
+  }
   render() {
     return (
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={this.handlePress.bind(this)}>
         <Text style={styles.buttonLabel}>{this.props.label}</Text>
       </TouchableOpacity>
     )

@@ -24,18 +24,7 @@ export default class Message extends Component {
     })
   }
   handleLogin () {
-    // Toast.show('请求成功')
-    fetch('https://mywebsite.com/endpoint/', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        firstParam: 'yourValue',
-        secondParam: 'yourOtherValue',
-      })
-    })
+    this.props.navigation.navigate('Message')
   }
   render() {
     let state = this.state
@@ -55,7 +44,7 @@ export default class Message extends Component {
           <View style={styles.textInputBox}>
             <TextInput
               style={styles.textInput}
-              onChangeText={text => this.handlePassword({text})}
+              onChangeText={text => this.handlePassword(text)}
               value={this.state.password}
               placeholder="请输入密码"
               maxLength={6}
