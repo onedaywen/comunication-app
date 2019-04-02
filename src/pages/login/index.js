@@ -4,6 +4,7 @@ import { Text, Image, View, TextInput, Button, AsyncStorage } from 'react-native
 import { primaryColor } from '../../styles/var'
 import TButton from '../../components/t-button/index'
 import ajax from '../../common/js/ajax'
+// import console = require('console');
 
 export default class Message extends Component {
   static navigationOptions = {
@@ -64,7 +65,9 @@ export default class Message extends Component {
         return
       }
       let res = await fetch('http://localhost:3000/login?' + Math.random())
+      console.log(res)
       res = await res.json()
+      debugger
       if (res && res.code === 0) {
         this.setState({
           ...this.state,
@@ -93,7 +96,6 @@ export default class Message extends Component {
     return (
       <View style={styles.pageView}>
         <View style={styles.contentBox}>
-          <Text>{this.state.data}</Text>
           <View style={styles.textInputBox}>
             <TextInput
               style={styles.textInput}

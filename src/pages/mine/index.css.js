@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
   },
   imgBox: {
     width: 48,
-    marginTop: 11,
+    height: 68,
+    paddingTop: 10,
     // ...border('orange')
   },
   itemTextBox: {
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
   },
   itemText: {
     fontSize: 20,
-    lineHeight: 55
+    lineHeight: 60
   }
 })
 export default styles

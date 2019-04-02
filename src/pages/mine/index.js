@@ -39,7 +39,6 @@ export default class Message extends Component {
     let state = this.state
     return (
       <View style={styles.pageView}>
-        <THeader></THeader>
         <View style={styles.listBox}>
           {
             this.state.list.map((item, index) => {

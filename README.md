@@ -23,4 +23,11 @@
 
 ## iOS和Android如何做适配
 >+ 1. 采用了createBottomTabNavigator， screen组件配置static navigation标题在安卓端无效，在iOS端有效。
+>+ 2. fetch请求，ajax请求，后端采用cors，在ios端模拟器有效，在安卓端无效
 ## 如何进行调试
+采用chrome调试
+>+ 1. mac,在模拟器中按command + d, 再按Debug JS Remotely, 会自动打开浏览器，
+或者是手动在chrome浏览器中输入 http://localhost:8081/debugger-ui。打开控制台即可调试。
+>+ 2. window换成ctrl + m，其余步骤同上。
+
+在网页http://localhost:8081/debugger-ui中最下方显示，Status: Debugger session #10994 active.表明调试环境是ok的。
