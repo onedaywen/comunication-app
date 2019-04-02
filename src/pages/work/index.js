@@ -33,7 +33,7 @@ export default class Message extends Component {
             }
           </View>
         </ScrollView>
-        <TFooter></TFooter>
+        {/* <TFooter></TFooter> */}
       </View>
     )
   }

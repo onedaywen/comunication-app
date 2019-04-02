@@ -45,7 +45,7 @@ export default class Message extends Component {
             })
           }
         </View>
-        <TFooter></TFooter>
+        {/* <TFooter></TFooter> */}
       </View>
     )
   }
