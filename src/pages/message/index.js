@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styles from './index.css.js'
-import { Text, Image, View, ScrollView } from 'react-native'
+import { AsyncStorage, Text, Image, View, ScrollView } from 'react-native'
 import THeader from '../../components/t-header/index'
 import TFooter from '../../components/t-footer/index'
 
@@ -13,10 +13,26 @@ export default class Message extends Component {
           label: Math.random().toString(36).substr(2),
           img: require('../../assets/imgs/communication.png')
         }
+      }),
+      token: ''
+    }
+  }
+  async getToken () {
+    try {
+      let token = await AsyncStorage.getItem('token')
+      this.setState({
+        ...this.state,
+        token
+      })
+    } catch (e) {
+      this.setState({
+        ...this.state,
+        token: 'token无数据'
       })
     }
   }
   componentWillMount () {
+    this.getToken()
     // console.log(1111)
   }
   render() {
@@ -24,6 +40,7 @@ export default class Message extends Component {
     return (
       <View style={styles.pageView}>
         <THeader></THeader>
+        
         <ScrollView styles={styles.scrollView}>
           <View style={styles.messageBox}>
             {
@@ -37,7 +54,7 @@ export default class Message extends Component {
                     <View style={styles.itemRightBox}>
                       <View style={styles.firstLine}>
                         <Text style={styles.firstLineText}>{item.label}</Text>
-                        <Text style={styles.firstLineTime}>昨天10:20</Text>
+                        <Text style={styles.firstLineTime}>{this.state.token}昨天10:20</Text>
                       </View>
                       <View style={styles.secondLine}>
                         <Text style={styles.secondLineText} numberOfLines={1}>温奕添-前端开发工程师: 麻烦运维同事在今晚8点发车管家的生产包，构建吗876</Text>

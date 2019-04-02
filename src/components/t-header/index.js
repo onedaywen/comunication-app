@@ -10,7 +10,7 @@ export default class THeader extends Component {
   render() {
     return (
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>跨声</Text>
+        <Text style={styles.headerTitle}>树洞</Text>
       </View>
     )
   }

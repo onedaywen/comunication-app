@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styles from './index.css.js'
-import { Text, Image, View, TextInput, Button } from 'react-native'
+import { Text, Image, View, TextInput, Button, AsyncStorage } from 'react-native'
 import { primaryColor } from '../../styles/var'
 import TButton from '../../components/t-button/index'
 export default class Message extends Component {
@@ -8,7 +8,38 @@ export default class Message extends Component {
     super(props)
     this.state = {
       account: '',
-      password: ''
+      password: '',
+      token: ''
+    }
+  }
+  async getToken () {
+    try {
+      let token = await AsyncStorage.getItem('token')
+      this.setState({
+        ...this.state,
+        token
+      })
+    } catch (e) {
+      this.setState({
+        ...this.state,
+        token: 'token无数据'
+      })
+    }
+  }
+  async removeToken () {
+    try {
+      let token = await AsyncStorage.removeItem('token')
+      this.setState({
+        ...this.state,
+        token
+      })
+      return true
+    } catch (e) {
+      this.setState({
+        ...this.state,
+        token: 'token无数据'
+      })
+      return false
     }
   }
   handleAccount (text) {
@@ -23,14 +54,21 @@ export default class Message extends Component {
       password: text
     })
   }
-  handleLogin () {
-    this.props.navigation.navigate('Message')
+  async handleLogin () {
+    try {
+      await AsyncStorage.setItem('token', 'token_' + Math.random().toString(36).substr(2))
+      this.props.navigation.navigate('Message')
+    } catch (e) {}
+  }
+  componentWillMount () {
+    this.getToken()
   }
   render() {
     let state = this.state
     return (
       <View style={styles.pageView}>
         <View style={styles.contentBox}>
+          <Text>{this.state.token}</Text>
           <View style={styles.textInputBox}>
             <TextInput
               style={styles.textInput}

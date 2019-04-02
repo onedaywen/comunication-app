@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { AppRegistry, Text, View, Image } from 'react-native'
+import { AppRegistry, AsyncStorage, Text, View, Image, ActivityIndicator, StatusBar } from 'react-native'
 import MessageScreen from './src/pages/message/index'
 import WorkScreen from './src/pages/work/index'
 import CommunicationScreen from './src/pages/communication/index'
 import MineScreen from './src/pages/mine/index'
 import LoginScreen from './src/pages/login/index'
+import AuthLoadingScreen from './src/pages/auth-loading/index'
 import { createStackNavigator, createBottomTabNavigator, createSwitchNavigator } from 'react-navigation'
+
 const routeNameMap = {
   Message: { 
     label: '消息',
@@ -61,10 +63,11 @@ const BottomNavigator = createBottomTabNavigator(
   }
 )
 const SwitchNavigator = createSwitchNavigator({
+  AuthLoading: AuthLoadingScreen,
   Login: LoginScreen,
   BottomNavigator: BottomNavigator
 }, {
-  initialRouteName: 'Login'
+  initialRouteName: 'AuthLoading'
 })
 export default class MyApp extends Component {
   constructor (props) {
