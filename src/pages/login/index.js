@@ -3,28 +3,31 @@ import styles from './index.css.js'
 import { Text, Image, View, TextInput, Button, AsyncStorage } from 'react-native'
 import { primaryColor } from '../../styles/var'
 import TButton from '../../components/t-button/index'
+import ajax from '../../common/js/ajax'
+
 export default class Message extends Component {
+  static navigationOptions = {
+    title: '登录'
+  }
   constructor (props) {
     super(props)
     this.state = {
       account: '',
       password: '',
-      token: ''
+      token: '',
+      data: '啊啊啊啊啊啊啊啊啊'
     }
   }
   async getToken () {
     try {
       let token = await AsyncStorage.getItem('token')
-      this.setState({
-        ...this.state,
-        token
-      })
-    } catch (e) {
-      this.setState({
-        ...this.state,
-        token: 'token无数据'
-      })
-    }
+      if (token !== 'null' && token !== 'undefined') {
+        this.setState({
+          ...this.state,
+          token
+        })
+      }
+    } catch (e) {}
   }
   async removeToken () {
     try {
@@ -56,9 +59,39 @@ export default class Message extends Component {
   }
   async handleLogin () {
     try {
-      await AsyncStorage.setItem('token', 'token_' + Math.random().toString(36).substr(2))
-      this.props.navigation.navigate('Message')
-    } catch (e) {}
+      let { account, password } = this.state
+      if (!(account && password)) {
+        return
+      }
+      let res = await ajax.get('http://localhost:3000/login?' + Math.random())
+      // let data = await res.json()
+      this.setState({
+        ...this.state,
+        data: 'aaaaaa'
+      })
+      // if (typeof data === 'string') {
+      //   this.setState({
+      //     ...this.state,
+      //     data: '成功'
+      //   })
+      // } else {
+      //   this.setState({
+      //     ...this.state,
+      //     data: '不是字符串'
+      //   })
+      // }
+      // await AsyncStorage.setItem('token', 'token_' + Math.random().toString(36).substr(2))
+      // this.props.navigation.navigate('Message')
+    } catch (e) {
+      let str = ''
+      for (let k in e) {
+        str += k + '---'
+      }
+      this.setState({
+        ...this.state,
+        data: str
+      })
+    }
   }
   componentWillMount () {
     this.getToken()
@@ -68,7 +101,7 @@ export default class Message extends Component {
     return (
       <View style={styles.pageView}>
         <View style={styles.contentBox}>
-          <Text>{this.state.token}</Text>
+          <Text>{this.state.data}</Text>
           <View style={styles.textInputBox}>
             <TextInput
               style={styles.textInput}

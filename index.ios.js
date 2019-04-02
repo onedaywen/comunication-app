@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { AppRegistry, Text, View, Image } from 'react-native'
-import Message from './src/pages/message/index'
-import Work from './src/pages/work/index'
-import Communication from './src/pages/communication/index'
-import Mine from './src/pages/mine/index'
-import Login from './src/pages/login/index'
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation'
+import { AppRegistry, AsyncStorage, Text, View, Image, ActivityIndicator, StatusBar } from 'react-native'
+import MessageScreen from './src/pages/message/index'
+import WorkScreen from './src/pages/work/index'
+import CommunicationScreen from './src/pages/communication/index'
+import MineScreen from './src/pages/mine/index'
+import LoginScreen from './src/pages/login/index'
+import AuthLoadingScreen from './src/pages/auth-loading/index'
+import { createStackNavigator, createBottomTabNavigator, createSwitchNavigator } from 'react-navigation'
+
 const routeNameMap = {
   Message: { 
     label: '消息',
@@ -34,10 +36,10 @@ const routeNameMap = {
 }
 const BottomNavigator = createBottomTabNavigator(
   { 
-    Message: { screen: Message },
-    Work: { screen: Work },
-    Communication: { screen: Communication },
-    Mine: { screen: Mine },
+    Message: { screen: MessageScreen },
+    Work: { screen: WorkScreen },
+    Communication: { screen: CommunicationScreen },
+    Mine: { screen: MineScreen },
   },
   {
     initialRouteName: 'Message',
@@ -60,10 +62,12 @@ const BottomNavigator = createBottomTabNavigator(
     })
   }
 )
-const StackNavigator = createStackNavigator({
-  Login: {
-    screen: Login
-  }
+const SwitchNavigator = createSwitchNavigator({
+  AuthLoading: AuthLoadingScreen,
+  Login: LoginScreen,
+  BottomNavigator: BottomNavigator
+}, {
+  initialRouteName: 'AuthLoading'
 })
 export default class MyApp extends Component {
   constructor (props) {
@@ -71,7 +75,7 @@ export default class MyApp extends Component {
   }
   render() {
     return (
-      <BottomNavigator></BottomNavigator>
+      <SwitchNavigator></SwitchNavigator>
     )
   }
 }
