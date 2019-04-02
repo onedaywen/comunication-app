@@ -19,6 +19,8 @@
 ## webview与h5如何传参
 
 
-## iOS和Android如何做适配
 
+
+## iOS和Android如何做适配
+>+ 1. 采用了createBottomTabNavigator， screen组件配置static navigation标题在安卓端无效，在iOS端有效。
 ## 如何进行调试

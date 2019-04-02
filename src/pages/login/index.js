@@ -63,25 +63,17 @@ export default class Message extends Component {
       if (!(account && password)) {
         return
       }
-      let res = await ajax.get('http://localhost:3000/login?' + Math.random())
-      // let data = await res.json()
-      this.setState({
-        ...this.state,
-        data: 'aaaaaa'
-      })
-      // if (typeof data === 'string') {
-      //   this.setState({
-      //     ...this.state,
-      //     data: '成功'
-      //   })
-      // } else {
-      //   this.setState({
-      //     ...this.state,
-      //     data: '不是字符串'
-      //   })
-      // }
-      // await AsyncStorage.setItem('token', 'token_' + Math.random().toString(36).substr(2))
-      // this.props.navigation.navigate('Message')
+      let res = await fetch('http://localhost:3000/login?' + Math.random())
+      res = await res.json()
+      if (res && res.code === 0) {
+        this.setState({
+          ...this.state,
+          data: res.data.token
+        })
+        await AsyncStorage.setItem('token', 'token_' + res.data.token)
+        this.props.navigation.navigate('Message')
+      }
+      
     } catch (e) {
       let str = ''
       for (let k in e) {

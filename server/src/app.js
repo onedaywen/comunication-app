@@ -9,7 +9,7 @@ router.get('/login', async (ctx, next) => {
   ctx.body = {
     code: 0,
     data: {
-      token: 'aaaaaaaaaaaaaaaaa'
+      token: Math.random().toString(36).substr(2)
     },
     msg: '登录成功'
   }

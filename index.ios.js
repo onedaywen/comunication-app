@@ -69,7 +69,7 @@ const SwitchNavigator = createSwitchNavigator({
 }, {
   initialRouteName: 'AuthLoading'
 })
-export default class MyApp extends Component {
+class MyApp extends Component {
   constructor (props) {
     super(props)
   }
@@ -79,5 +79,4 @@ export default class MyApp extends Component {
     )
   }
 }
-
 AppRegistry.registerComponent('MyApp', () => MyApp)
