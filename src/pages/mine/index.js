@@ -13,6 +13,11 @@ export default class Message extends Component {
           key: 'collect'
         },
         {
+          label: '我的问卷',
+          img: require('../../assets/icon/icon-survey.png'),
+          key: 'collect'
+        },
+        {
           label: '设置',
           img: require('../../assets/imgs/set.png'),
           key: 'set'

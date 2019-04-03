@@ -21,8 +21,8 @@ export default class TButton extends Component {
 }
 const styles = StyleSheet.create({ 
   button: {
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingTop: 14,
+    paddingBottom: 14,
     backgroundColor: primaryColor,
     borderColor: primaryColor,
     borderWidth: 1,
