@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { AppRegistry, AsyncStorage, Text, View, Image, ActivityIndicator, StatusBar } from 'react-native'
+import { AppRegistry, AsyncStorage, Text, View, Image, ActivityIndicator, StatusBar, StyleSheet, Button } from 'react-native'
 import MessageScreen from './src/pages/message/index'
 import WorkScreen from './src/pages/work/index'
 import CommunicationScreen from './src/pages/communication/index'
 import MineScreen from './src/pages/mine/index'
 import LoginScreen from './src/pages/login/index'
 import AuthLoadingScreen from './src/pages/auth-loading/index'
-import { createStackNavigator, createBottomTabNavigator, createSwitchNavigator } from 'react-navigation'
+import { createStackNavigator, createBottomTabNavigator, createSwitchNavigator, createDrawerNavigator } from 'react-navigation'
 import { primaryColor } from './src/styles/var'
 const routeNameMap = {
   Message: { 
@@ -59,10 +59,10 @@ const BottomNavigator = createBottomTabNavigator(
           <Text style={{textAlign: 'center', fontSize: 12, color: focused ? primaryColor : '#999'}}>{config.label}</Text>
         )
       },
-      // tabBarOptions: {
-      //   activeTintColor: '#000',
-      //   inactiveTintColor: '#999',
-      // }
+      tabBarOptions: {
+        inactiveBackgroundColor: '#fff',
+        activeBackgroundColor: '#f1f4f7'
+      }
     })
   }
 )
@@ -83,5 +83,4 @@ class MyApp extends Component {
     )
   }
 }
-
 AppRegistry.registerComponent('MyApp', () => MyApp)

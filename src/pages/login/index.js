@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styles from './index.css.js'
-import { Text, Image, View, TextInput, Button, AsyncStorage } from 'react-native'
+import { Text, Image, View, TextInput, Button, AsyncStorage, ActivityIndicator } from 'react-native'
 import { primaryColor } from '../../styles/var'
 import TButton from '../../components/t-button/index'
 import ajax from '../../common/js/ajax'
@@ -15,20 +15,8 @@ export default class Message extends Component {
     this.state = {
       account: '',
       password: '',
-      token: '',
-      data: '啊啊啊啊啊啊啊啊啊'
+      loading: false
     }
-  }
-  async getToken () {
-    try {
-      let token = await AsyncStorage.getItem('token')
-      if (token !== 'null' && token !== 'undefined') {
-        this.setState({
-          ...this.state,
-          token
-        })
-      }
-    } catch (e) {}
   }
   async removeToken () {
     try {
@@ -39,10 +27,6 @@ export default class Message extends Component {
       })
       return true
     } catch (e) {
-      this.setState({
-        ...this.state,
-        token: 'token无数据'
-      })
       return false
     }
   }
@@ -64,37 +48,41 @@ export default class Message extends Component {
       if (!(account && password)) {
         return
       }
+      this.setState({
+        ...this.state,
+        loading: true
+      })
       let res = await fetch('http://localhost:3000/login?' + Math.random())
-      console.log(res)
       res = await res.json()
-      debugger
+
       if (res && res.code === 0) {
         this.setState({
           ...this.state,
           data: res.data.token
         })
         await AsyncStorage.setItem('token', 'token_' + res.data.token)
+        this.setState({
+          ...this.state,
+          loading: false
+        })
         this.props.navigation.navigate('Message')
       }
-      
     } catch (e) {
-      let str = ''
-      for (let k in e) {
-        str += k + '---'
-      }
       this.setState({
         ...this.state,
-        data: str
+        loading: false
       })
     }
-  }
-  componentWillMount () {
-    this.getToken()
   }
   render() {
     let state = this.state
     return (
       <View style={styles.pageView}>
+        {
+          this.state.loading ?
+          <ActivityIndicator size="large" color={primaryColor} style={{height: 700}}/>
+          : <Text></Text>
+        }
         <View style={styles.contentBox}>
           <View style={styles.textInputBox}>
             <TextInput

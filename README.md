@@ -26,6 +26,7 @@
 ## iOS和Android如何做适配
 >+ 1. 采用了createBottomTabNavigator， screen组件配置static navigation标题在安卓端无效，在iOS端有效。
 >+ 2. fetch请求，ajax请求，后端采用cors，在ios端模拟器有效，在安卓端无效
+>+ 3. iPhone X 齐刘海采用SafeAreaView组件包裹页面。
 ## 如何进行调试
 采用chrome调试
 >+ 1. mac,在模拟器中按command + d, 再按Debug JS Remotely, 会自动打开浏览器，
