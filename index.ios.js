@@ -15,12 +15,6 @@ const routeNameMap = {
     activeIcon: require('./src/assets/icon/icon-msg-active.png'),
     routeName: 'Message'
   },
-  Work: {
-    label: '工作',
-    icon: require('./src/assets/icon/icon-work.png'),
-    activeIcon: require('./src/assets/icon/icon-work-active.png'),
-    routeName: 'Work'
-  },
   Communication: {
     label: '通讯录',
     icon: require('./src/assets/icon/icon-communicate.png'),
@@ -37,7 +31,6 @@ const routeNameMap = {
 const BottomNavigator = createBottomTabNavigator(
   { 
     Message: { screen: MessageScreen },
-    Work: { screen: WorkScreen },
     Communication: { screen: CommunicationScreen },
     Mine: { screen: MineScreen },
   },
