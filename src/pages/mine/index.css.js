@@ -20,7 +20,50 @@ const styles = StyleSheet.create({
   pageView: {
     width,
     height: height - 60,
-    // backgroundColor: 'yellow',
+    backgroundColor: '#fff'
+  },
+  mineHeader: {
+    position: 'relative',
+    height: 200,
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 30,
+    borderWidth: 1,
+    borderColor: 'transparent',
+    borderRadius: 10,
+    overflow: 'hidden'
+  },
+  // 背景图片
+  img: {
+    width: '100%',
+    height: '100%'
+  },
+  // 人物头像
+  personPictureBox: {
+    position: 'absolute',
+    right: 20,
+    top: 20,
+    width: 60,
+    height: 60,
+    borderWidth: 1,
+    borderColor: 'transparent',
+    borderRadius: 30,
+    overflow: 'hidden'
+  },
+  headerContent: {
+    position: 'absolute',
+    top: 80,
+    left: 20,
+    width: 180,
+    backgroundColor: 'transparent'
+  },
+  firstLine: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 10
+  },
+  text: {
+    color: '#efefef'
   },
   listBox: {
     height: height - 180,

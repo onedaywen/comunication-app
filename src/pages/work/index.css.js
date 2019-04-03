@@ -6,8 +6,7 @@ const { height, width } =  Dimensions.get('window')
 const styles = StyleSheet.create({
   pageView: {
     width,
-    height: height - 60,
-    backgroundColor: 'yellow',
+    height: height - 60
   },
   scrollView: {
     width,

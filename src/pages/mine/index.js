@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import styles from './index.css.js'
-import { Text, Image, View, TouchableOpacity, AsyncStorage } from 'react-native'
-import THeader from '../../components/t-header/index'
-import TFooter from '../../components/t-footer/index'
+import { AsyncStorage, Dimensions, Text, Image, View, TouchableOpacity } from 'react-native'
+const { height, width } =  Dimensions.get('window')
 export default class Message extends Component {
   constructor (props) {
     super(props)
@@ -39,6 +38,22 @@ export default class Message extends Component {
     let state = this.state
     return (
       <View style={styles.pageView}>
+        <View style={styles.mineHeader}>
+          <Image source={require('../../assets/imgs/mine-bg.jpeg')} style={styles.img}>
+          </Image>
+          <View style={styles.personPictureBox}>
+            <Image  style={styles.img} source={require('../../assets/imgs/person-picture.jpeg')}></Image>
+          </View>
+          <View style={styles.headerContent}>
+            <View style={styles.firstLine}>
+              <Text style={styles.text}>034157</Text>
+              <Text style={styles.text}>前端开发工程师</Text>
+            </View>
+            <View>
+              <Text style={styles.text}>大唐经理部-协调策划组</Text>
+            </View>
+          </View>
+        </View>
         <View style={styles.listBox}>
           {
             this.state.list.map((item, index) => {
@@ -56,7 +71,6 @@ export default class Message extends Component {
             })
           }
         </View>
-        {/* <TFooter></TFooter> */}
       </View>
     )
   }

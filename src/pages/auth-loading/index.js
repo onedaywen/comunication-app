@@ -9,7 +9,7 @@ export default class AuthLoading extends React.Component {
   }
   auth = async () => {
     const userToken = await AsyncStorage.getItem('token')
-    this.props.navigation.navigate(userToken ? 'Message' : 'Login')
+    this.props.navigation.navigate(userToken ? 'Mine' : 'Login')
   };
   render() {
     return (

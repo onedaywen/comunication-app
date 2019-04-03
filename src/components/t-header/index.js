@@ -10,15 +10,16 @@ export default class THeader extends Component {
   render() {
     return (
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>树洞</Text>
+        <Text style={styles.headerTitle}>{this.props.headerTitle}</Text>
       </View>
     )
   }
 }
 const styles = StyleSheet.create({ 
-  header: {     
+  header: {
     width: width,
     height: 60,
+    marginTop: 20,
     backgroundColor: '#fff',
     borderBottomWidth: 1,
     borderBottomColor: '#efefef'

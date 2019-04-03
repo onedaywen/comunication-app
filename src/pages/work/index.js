@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import styles from './index.css.js'
 import { Text, Image, View, ScrollView } from 'react-native'
 import THeader from '../../components/t-header/index'
-import TFooter from '../../components/t-footer/index'
 export default class Message extends Component {
   constructor (props) {
     super(props)
@@ -18,6 +17,7 @@ export default class Message extends Component {
     let state = this.state
     return (
       <View style={styles.pageView}>
+        <THeader headerTitle="工作"/>
         <ScrollView styles={styles.scrollView}>
           <View style={styles.messageBox}>
             {
@@ -32,7 +32,6 @@ export default class Message extends Component {
             }
           </View>
         </ScrollView>
-        {/* <TFooter></TFooter> */}
       </View>
     )
   }
